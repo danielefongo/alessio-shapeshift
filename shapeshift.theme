@@ -1,0 +1,27 @@
+alessio_dir() { 
+    colorize "%1~" blue true
+}
+
+alessio_branch() {
+    if [[ -z "$(git_branch)" ]]; then
+        return
+    fi
+    colorize "[" green true 
+    git_branch
+    git_diffs
+    colorize "]" green true
+}
+
+SHAPESHIFT_NEWLINE_AFTER_COMMAND=false
+
+SHAPESHIFT_GIT_BRANCH_COLOR=green
+SHAPESHIFT_GIT_BRANCH_BOLD=true
+SHAPESHIFT_GIT_DIFF_SYMBOL="•"
+SHAPESHIFT_GIT_MODIFIED_COLOR=yellow
+SHAPESHIFT_GIT_STAGED_COLOR=green
+SHAPESHIFT_GIT_UNTRACKED_COLOR=red
+
+SHAPESHIFT_LS_COLORS_ENABLED=false
+
+SHAPESHIFT_PROMPT_LEFT_ELEMENTS=(alessio_dir alessio_branch)
+SHAPESHIFT_PROMPT_RIGHT_ELEMENTS=()
